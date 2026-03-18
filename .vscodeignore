@@ -1,0 +1,16 @@
+.vscode/**
+.github/**
+src/**
+out/**
+node_modules/**
+*.ts
+!dist/**
+tsconfig.json
+esbuild.mjs
+biome.json
+bun.lock
+.gitignore
+.DS_Store
+**/*.test.ts
+**/*.test.js
+**/*.map
