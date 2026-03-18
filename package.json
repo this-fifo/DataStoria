@@ -1,0 +1,474 @@
+{
+	"name": "datastoria",
+	"displayName": "DataStoria",
+	"description": "Browse, edit, and debug Roblox Data Stores with time-travel revision history",
+	"version": "0.1.0",
+	"publisher": "this-fifo",
+	"license": "Apache-2.0",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"roblox",
+		"datastore",
+		"data store",
+		"open cloud",
+		"game development"
+	],
+	"icon": "media/icons/logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/this-fifo/DataStoria"
+	},
+	"main": "./dist/extension.js",
+	"activationEvents": [],
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "datastoria",
+					"title": "DataStoria",
+					"icon": "media/icons/datastoria.svg"
+				}
+			]
+		},
+		"views": {
+			"datastoria": [
+				{
+					"type": "webview",
+					"id": "datastoria.search",
+					"name": "Search",
+					"visibility": "visible",
+					"initialSize": 1
+				},
+				{
+					"id": "datastoria.explorer",
+					"name": "Data Stores",
+					"contextualTitle": "DataStoria Explorer",
+					"initialSize": 10
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "datastoria.explorer",
+				"contents": "No universes configured.\n[Add API Key](command:datastoria.addApiKey)\n[Add Universe](command:datastoria.addUniverse)\n\nYou need a Roblox Open Cloud API key with Data Store permissions.\n[Learn about API keys](https://create.roblox.com/docs/cloud/open-cloud/api-keys)"
+			}
+		],
+		"commands": [
+			{
+				"command": "datastoria.addApiKey",
+				"title": "Add API Key",
+				"category": "DataStoria",
+				"icon": "$(key)"
+			},
+			{
+				"command": "datastoria.addUniverse",
+				"title": "Add Universe",
+				"category": "DataStoria",
+				"icon": "$(add)"
+			},
+			{
+				"command": "datastoria.editApiKey",
+				"title": "Edit API Key",
+				"category": "DataStoria",
+				"icon": "$(edit)"
+			},
+			{
+				"command": "datastoria.deleteApiKey",
+				"title": "Delete API Key",
+				"category": "DataStoria",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "datastoria.editProfile",
+				"title": "Edit Universe",
+				"category": "DataStoria",
+				"icon": "$(edit)"
+			},
+			{
+				"command": "datastoria.deleteProfile",
+				"title": "Remove Universe",
+				"category": "DataStoria",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "datastoria.refresh",
+				"title": "Refresh",
+				"category": "DataStoria",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "datastoria.collapseAll",
+				"title": "Collapse All",
+				"category": "DataStoria",
+				"icon": "$(collapse-all)"
+			},
+			{
+				"command": "datastoria.viewEntry",
+				"title": "View Entry Value",
+				"category": "DataStoria",
+				"icon": "$(eye)"
+			},
+			{
+				"command": "datastoria.editEntry",
+				"title": "Edit Entry Value",
+				"category": "DataStoria",
+				"icon": "$(edit)"
+			},
+			{
+				"command": "datastoria.createEntry",
+				"title": "Create Entry",
+				"category": "DataStoria",
+				"icon": "$(add)"
+			},
+			{
+				"command": "datastoria.deleteEntry",
+				"title": "Delete Entry",
+				"category": "DataStoria",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "datastoria.incrementEntry",
+				"title": "Increment Entry",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.copyEntryId",
+				"title": "Copy Entry ID",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.copyEntryValue",
+				"title": "Copy Entry Value",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.viewRevisions",
+				"title": "View Revision History",
+				"category": "DataStoria",
+				"icon": "$(history)"
+			},
+			{
+				"command": "datastoria.diffRevisions",
+				"title": "Compare Revisions",
+				"category": "DataStoria",
+				"icon": "$(diff)"
+			},
+			{
+				"command": "datastoria.diffWithCurrent",
+				"title": "Compare with Current",
+				"category": "DataStoria",
+				"icon": "$(diff)"
+			},
+			{
+				"command": "datastoria.restoreRevision",
+				"title": "Restore This Revision",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.viewAtTimestamp",
+				"title": "View Entry at Timestamp...",
+				"category": "DataStoria",
+				"icon": "$(calendar)"
+			},
+			{
+				"command": "datastoria.exportEntries",
+				"title": "Export Entries to File",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.snapshotDataStores",
+				"title": "Create Daily Snapshot",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.deleteDataStore",
+				"title": "Delete Data Store",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.undeleteDataStore",
+				"title": "Restore Deleted Data Store",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.loadMore",
+				"title": "Load More",
+				"category": "DataStoria"
+			},
+			{
+				"command": "datastoria.searchEntries",
+				"title": "Search Entries...",
+				"category": "DataStoria",
+				"icon": "$(search)"
+			},
+			{
+				"command": "datastoria.browseScope",
+				"title": "Browse Custom Scope...",
+				"category": "DataStoria",
+				"icon": "$(symbol-namespace)"
+			},
+			{
+				"command": "datastoria.clearFilter",
+				"title": "Clear Filter",
+				"category": "DataStoria",
+				"icon": "$(close)"
+			},
+			{
+				"command": "datastoria.showStats",
+				"title": "Show Universe Stats",
+				"category": "DataStoria",
+				"icon": "$(graph)"
+			}
+		],
+		"menus": {
+			"view/title": [
+				{
+					"command": "datastoria.addApiKey",
+					"when": "view == datastoria.explorer",
+					"group": "navigation@1"
+				},
+				{
+					"command": "datastoria.refresh",
+					"when": "view == datastoria.explorer",
+					"group": "navigation@2"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "datastoria.showStats",
+					"when": "view == datastoria.explorer && viewItem == universe",
+					"group": "inline"
+				},
+				{
+					"command": "datastoria.showStats",
+					"when": "view == datastoria.explorer && viewItem == universe",
+					"group": "0_stats@1"
+				},
+				{
+					"command": "datastoria.editProfile",
+					"when": "view == datastoria.explorer && viewItem == universe",
+					"group": "1_profile@1"
+				},
+				{
+					"command": "datastoria.deleteProfile",
+					"when": "view == datastoria.explorer && viewItem == universe",
+					"group": "1_profile@2"
+				},
+				{
+					"command": "datastoria.snapshotDataStores",
+					"when": "view == datastoria.explorer && viewItem == universe",
+					"group": "2_bulk@1"
+				},
+				{
+					"command": "datastoria.searchEntries",
+					"when": "view == datastoria.explorer && viewItem == dataStore",
+					"group": "inline"
+				},
+				{
+					"command": "datastoria.searchEntries",
+					"when": "view == datastoria.explorer && viewItem == dataStore",
+					"group": "1_browse@1"
+				},
+				{
+					"command": "datastoria.browseScope",
+					"when": "view == datastoria.explorer && viewItem == dataStore",
+					"group": "1_browse@2"
+				},
+				{
+					"command": "datastoria.exportEntries",
+					"when": "view == datastoria.explorer && viewItem =~ /^dataStore/",
+					"group": "2_bulk@1"
+				},
+				{
+					"command": "datastoria.deleteDataStore",
+					"when": "view == datastoria.explorer && viewItem == dataStore",
+					"group": "3_danger@1"
+				},
+				{
+					"command": "datastoria.undeleteDataStore",
+					"when": "view == datastoria.explorer && viewItem == dataStore.deleted",
+					"group": "3_danger@1"
+				},
+				{
+					"command": "datastoria.searchEntries",
+					"when": "view == datastoria.explorer && viewItem == scope",
+					"group": "inline"
+				},
+				{
+					"command": "datastoria.searchEntries",
+					"when": "view == datastoria.explorer && viewItem == scope",
+					"group": "1_browse@1"
+				},
+				{
+					"command": "datastoria.createEntry",
+					"when": "view == datastoria.explorer && viewItem == scope",
+					"group": "1_browse@2"
+				},
+				{
+					"command": "datastoria.viewEntry",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "1_view@1"
+				},
+				{
+					"command": "datastoria.editEntry",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "inline"
+				},
+				{
+					"command": "datastoria.editEntry",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "1_view@2"
+				},
+				{
+					"command": "datastoria.viewRevisions",
+					"when": "view == datastoria.explorer && viewItem == entry",
+					"group": "2_history@1"
+				},
+				{
+					"command": "datastoria.diffRevisions",
+					"when": "view == datastoria.explorer && viewItem == entry",
+					"group": "2_history@2"
+				},
+				{
+					"command": "datastoria.viewAtTimestamp",
+					"when": "view == datastoria.explorer && viewItem == entry",
+					"group": "2_history@3"
+				},
+				{
+					"command": "datastoria.incrementEntry",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "3_modify@1"
+				},
+				{
+					"command": "datastoria.copyEntryId",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "4_copy@1"
+				},
+				{
+					"command": "datastoria.copyEntryValue",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "4_copy@2"
+				},
+				{
+					"command": "datastoria.deleteEntry",
+					"when": "view == datastoria.explorer && viewItem =~ /^entry/",
+					"group": "5_danger@1"
+				},
+				{
+					"command": "datastoria.diffWithCurrent",
+					"when": "view == datastoria.explorer && viewItem == revision",
+					"group": "1_view@1"
+				},
+				{
+					"command": "datastoria.restoreRevision",
+					"when": "view == datastoria.explorer && viewItem == revision",
+					"group": "2_action@1"
+				}
+			]
+		},
+		"configuration": {
+			"title": "DataStoria",
+			"properties": {
+				"datastoria.apiKeys": {
+					"type": "array",
+					"default": [],
+					"description": "API key names. The actual secrets are stored securely in your OS keychain.",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "API key display name (e.g., 'My Production Key')"
+							}
+						},
+						"required": [
+							"name"
+						]
+					}
+				},
+				"datastoria.universes": {
+					"type": "array",
+					"default": [],
+					"description": "Universe configurations. Each universe references an API key by name.",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "Display name (e.g., 'My Game - Production')"
+							},
+							"universeId": {
+								"type": "string",
+								"description": "Roblox Universe ID"
+							},
+							"apiKeyName": {
+								"type": "string",
+								"description": "Name of the API key to use for this universe"
+							}
+						},
+						"required": [
+							"name",
+							"universeId",
+							"apiKeyName"
+						]
+					}
+				},
+				"datastoria.pageSize": {
+					"type": "number",
+					"default": 50,
+					"minimum": 10,
+					"maximum": 100,
+					"description": "Number of items to load per page in tree views"
+				},
+				"datastoria.showDeletedDataStores": {
+					"type": "boolean",
+					"default": false,
+					"description": "Show soft-deleted data stores in the explorer"
+				},
+				"datastoria.confirmDestructiveActions": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show confirmation dialogs before delete and overwrite operations"
+				},
+				"datastoria.jsonIndent": {
+					"type": "number",
+					"default": 2,
+					"minimum": 0,
+					"maximum": 8,
+					"description": "Number of spaces for JSON indentation when viewing entries"
+				},
+				"datastoria.rateLimitWarningThreshold": {
+					"type": "number",
+					"default": 80,
+					"minimum": 50,
+					"maximum": 99,
+					"description": "Percentage of rate limit budget consumed before showing a warning"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"build": "bun run check-types && bun esbuild.mjs --production",
+		"watch": "bun esbuild.mjs --watch",
+		"check-types": "tsc --noEmit",
+		"check": "biome check .",
+		"fix": "biome check --fix .",
+		"test": "bun test",
+		"vscode:prepublish": "bun run build",
+		"package": "vsce package"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.0.0",
+		"@types/node": "^20.11.0",
+		"@types/vscode": "^1.85.0",
+		"@vscode/test-electron": "^2.4.0",
+		"@vscode/vsce": "^3.0.0",
+		"esbuild": "^0.24.0",
+		"typescript": "^5.7.0"
+	}
+}
