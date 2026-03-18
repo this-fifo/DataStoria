@@ -41,12 +41,14 @@
 					"type": "webview",
 					"id": "datastoria.search",
 					"name": "Search",
+					"icon": "media/icons/datastoria.svg",
 					"visibility": "visible",
 					"initialSize": 1
 				},
 				{
 					"id": "datastoria.explorer",
 					"name": "Data Stores",
+					"icon": "media/icons/datastoria.svg",
 					"contextualTitle": "DataStoria Explorer",
 					"initialSize": 10
 				}
