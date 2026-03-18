@@ -6,6 +6,11 @@
   <strong>Browse, edit, and debug Roblox Data Stores from VS Code.</strong>
 </p>
 
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=this-fifo.datastoria"><img src="https://img.shields.io/visual-studio-marketplace/v/this-fifo.datastoria?label=VS%20Code%20Marketplace&logo=visual-studio-code&color=3B82F6" alt="VS Code Marketplace" /></a>
+  <a href="https://github.com/this-fifo/DataStoria/blob/master/LICENSE"><img src="https://img.shields.io/github/license/this-fifo/DataStoria?color=34D399" alt="License" /></a>
+</p>
+
 DataStoria is a VS Code extension that connects to the [Roblox Open Cloud API v2](https://create.roblox.com/docs/cloud/reference/DataStore) to give you a full data store explorer with time-travel debugging, revision diffs, and entry editing — all without leaving your editor.
 
 ---
