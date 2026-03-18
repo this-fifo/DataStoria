@@ -278,7 +278,7 @@ bun run package        # Build .vsix for distribution
 - [ ] Daily snapshot trigger
 - [ ] Data store delete / undelete
 - [ ] Unit and integration tests
-- [ ] Marketplace publishing
+- [x] Marketplace publishing
 
 ---
 
