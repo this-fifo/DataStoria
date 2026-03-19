@@ -8,6 +8,8 @@
 
 <p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=this-fifo.datastoria"><img src="https://img.shields.io/visual-studio-marketplace/v/this-fifo.datastoria?label=VS%20Code%20Marketplace&logo=visual-studio-code&color=3B82F6" alt="VS Code Marketplace" /></a>
+  <a href="https://open-vsx.org/extension/this-fifo/datastoria"><img src="https://img.shields.io/open-vsx/v/this-fifo/datastoria?label=Open%20VSX&color=A855F7" alt="Open VSX" /></a>
+  <a href="https://this-fifo.github.io/DataStoria/"><img src="https://img.shields.io/badge/Docs-this--fifo.github.io-F59E0B" alt="Documentation" /></a>
   <a href="https://github.com/this-fifo/DataStoria/blob/master/LICENSE"><img src="https://img.shields.io/github/license/this-fifo/DataStoria?color=34D399" alt="License" /></a>
 </p>
 
